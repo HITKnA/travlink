@@ -194,9 +194,9 @@
             <li class="tab-active">推荐文章</li>
             <li>推荐同伴</li>
         </ul>
-        <div class="content">
+        <div class="content">{% for diary in diary_city_list %}
             <div class="inner">
-                {% for diary in diary_city_list %}
+                
                 <div class="aticle">
                     <div STYLE="width: 20%;">
                         <img src="http://127.0.0.1:8000/media/{{diary.Username.Image}}" style="display:inline;border-radius: 50%;"height="60px" width="60px">
@@ -209,13 +209,14 @@
                         <img src="http://127.0.0.1:8000/media/{{diary.Image}}" style="display:inline;"height="150px" width="180px">
                         {%endif%}
                 </div>
-                {% endfor %}
-            </div>
-            <div class="inner"style="display:none">
                 
+            </div>{% endfor %}
+
+            <div class="inner"style="display:none">
                 {%for plan in other_plan_list%}
                 <div class="account" >
                     <div class = "main">
+                        <p>{{plan}}</p>
                         <p>{{plan.Username.Username}}</p>
                         <p>出发地：{{plan.Start_place}}</p>
                         <p>目的地：{{plan.Destination}}</p>

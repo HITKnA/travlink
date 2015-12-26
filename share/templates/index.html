@@ -3,8 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="/src/js/jquery.tagsinput.js" type="text/javascript"></script>
     <title></title>
+    <script type="text/javascript">
+        $(function () {
+            $("#txtTags").TagsInput({
+                usedTags: "天津|南京",
+                hotTags: "北京|上海|哈尔滨|嘉兴",
+                tagNum: 10,
+                maxWords: 10
+            });
+        });
+    </script>
     <style type="text/css">
+        .clearfix:after
+        {
+            clear: both;
+            content: " ";
+            display: block;
+            height: 0;
+        }
+        .tags-wrapper
+        {
+            width: 500px;
+            position:relative;
+        }
+        #addTagWrap
+        {
+            background: none repeat scroll 0 0 #FFFFFF;
+            border: 1px solid #D9D9D9;
+            padding: 0 5px;
+        }
+        #addTagWrap .inner-tag-wrapper,.layer-tag-name
+        {
+            background: none repeat scroll 0 0 #40A8CD;
+            border-radius: 3px;
+            color: #FFFFFF;
+            float: left;
+            height: 26px;
+            line-height: 26px;
+            margin: 4px 6px 0 0;
+            padding: 0 5px 0 10px;
+            white-space: nowrap;
+        }
+        #addTagWrap .inner-tag-close
+        {
+            color: #A0D4E6;
+            font-family: "宋体" ,sans-serif;
+
+            text-decoration: none;
+        }
+        #tagInput
+        {
+            background: none repeat scroll 0 0 #FFFFFF;
+            border: medium none;
+            margin: 0;
+            height: 24px;
+            line-height: 24px;
+            overflow: hidden;
+            padding: 5px;
+            width: 215px;
+        }
+        #tagInput:focus{ outline:none }
+        .layer-tags-wrapper
+        {
+            border: 1px solid #DADADA;
+            border-top:0;
+            overflow: auto;
+            position:absolute;
+            left:0;
+            right:0;
+            display:none;
+            background: none repeat scroll 0 0 #FFFFFF;
+        }
+        .layer-tags-wrapper .layer-tags-box
+        {
+            padding: 0 5px;
+        }
+        .layer-tags-wrapper .layer-tags-left
+        {
+            float: left;
+            text-align: center;
+            padding-right: 5px;
+            margin-top: 4px;
+            height: 26px;
+            line-height: 26px;
+        }
+        .layer-tags-wrapper .layer-tags-right
+        {
+            overflow: auto;
+        }
+        .layer-tags-wrapper .layer-tag-name
+        {
+            padding-right: 10px;
+            text-decoration: none;
+        }
+        .layer-tags-foot
+        {
+            height: 30px;
+            line-height: 30px;
+            color: #999999;
+            padding-left:5px;
+        }
+        .layer-tags-foot-top
+        {
+            margin-top:5px;
+            border-top:1px dotted #C9C9C9;
+        }
+        .message-box
+        {
+
+            color: #FFFFFF;
+            width: 300px;
+            min-height: 50px;
+            line-height: 50px;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px; /*注意这里必须是DIV高度的一半*/
+            margin-left: -150px; /*这里是DIV宽度的一半*/
+            position: fixed !important; /*FF IE7*/
+            position: absolute; /*IE6*/
+            z-index: 999;
+            text-align: center;
+            border-radius: 5px;
+        }
         body{
             width: 100%;
         }
@@ -143,6 +266,7 @@
         -webkit-box-shadow: 1px 1px 10px #778899;
             box-shadow: 1px 1px 10px #778899;
             margin: 30px 0 0 0;
+            border-radius: 5px;
         }
         div#passage>a{
             border-radius: 10px;
@@ -206,7 +330,7 @@
     <nav id="nav">
         <ul>
             <li class="current"><a>Home</a></li>
-            <li><a href="my_info">我的信息</a></li>
+            <li><a href="personal_index">travel blog</a></li>
             <li><a href="go_out.html">go travel</a></li>
 
         </ul>
@@ -242,7 +366,7 @@
                 <a style="text-decoration: none;">写说说</a>
                 <a class="current" href="yj.html">写日记</a>
                 <textarea  class ="text" name="yj" cols="86" rows="40"></textarea>
-                <p><input type="text" name = "yj_tag"/>#标签</p>
+                <p> <input type="text" value="" name="yj_tag" id="txtTags" /></p>
                 <input type="submit" value="提交" />
             </form>
         </div>
@@ -252,10 +376,10 @@
                 <div >
                     {{passage.Passage}}
                 </div>
-                <a>
-                    #{{passage.Tag}}
-                </a>
 
+                <a>
+                    {{passage.Tag}}
+                </a>
             </div>
         {%endfor%}
 

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>去哪里？</title>
+    <style type="text/css">
+
+        p{
+            font-family: monospace, monospace;
+            color: whitesmoke;
+        }
+        nav{
+            position: relative;
+            top:20px;
+            height:100px;
+
+        }
+        #nav > ul {
+            margin: 0;
+            position: relative;
+            left:30%;
+        }
+
+        #nav > ul > li {
+            display: inline-block;
+            font-style: italic;
+            margin: 0 2em 0 2em;
+        }
+
+        #nav > ul > li > a {
+            border-radius: 5px;
+            color: #5d5d5d;
+            text-decoration: none;
+            padding: .6em 1.2em 0.6em 1.2em;
+            -moz-transition: background-color .25s ease-in-out;
+            -webkit-transition: background-color .25s ease-in-out;
+            -ms-transition: background-color .25s ease-in-out;
+            transition: background-color .25s ease-in-out;
+            outline: 0;
+        }
+
+        #nav > ul > li:hover > a, #nav > ul > li.active > a {
+            background: #f3f3f3;
+        }
+
+        #nav > ul > li.current > a {
+            background: #d52349;
+            color: #fff !important;
+            font-weight: 700;
+        }
+        #nav>form>input{
+            border-radius: 5px;
+            border: none;
+            color: #5d5d5d;
+            position: relative;
+            left: 90%;
+            padding: .6em 1.2em 0.6em 1.2em;
+        }
+        #content>div>form>input{
+            border-radius: 5px;
+            border: none;
+            color: #5d5d5d;
+            position: relative;
+            top:-30px;
+            left: 95%;
+            padding: .6em 1.2em 0.6em 1.2em;
+
+        }
+        h1, h2, h3, h4, h5, h6,a,li {
+            color: #ffff99;
+            font-weight: 700;
+            font-family: monospace, monospace;
+        }
+
+        h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+            color: yellow;
+            text-decoration: none;
+            font-family: monospace, monospace;
+        }
+
+        a {
+            color: #d52349;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        div#header {background-color:red;clear:both;text-align:center;}
+        div#footer {background-color:red;clear:both;text-align:center;}
+        div#header>button{
+            position: relative;
+            left: 30%;
+        }
+
+
+        #group{
+
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background: white none repeat scroll 0 0;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 5px 10px #ccc;
+            float: left;
+            width: 395px;
+
+        }
+        .z{
+            float: left;
+            color: grey;
+            text-shadow:1px 1px 2px black;
+            position: relative;
+            left: 100px;
+        }
+
+    </style>
+
+
+</head>
+<body>
+<div >
+    <div id="header">
+        <h1>Travelink</h1>
+    </div id = "header">
+    <div>
+        <nav id="nav">
+            <ul>
+                <li ><a href="../../">Home</a></li>
+                <li><a href="../../personal_index.html">我的空间</a></li>
+                <li><a href="go_out.html">go travel</a></li>
+
+            </ul>
+        </nav>
+    </div>
+    <div id="content">
+        <div>
+            <h3 class="z">我的群组</h3>
+        </div>
+        <div style=" clear:both;position: relative;">
+            {%for group in my_group%}
+            <div id = "group" class="col-md-3 col-md-offset-2">
+                {{group.Name}}
+
+            </div>
+            {%endfor%}
+        </div>
+        <div style=" clear:both;position: relative;">
+            
+            <div id = "group" class="col-md-3 col-md-offset-2">
+                <form action="" method="post">小组名称：<input type="text" name="group_name" />
+                 <input value="创建群组" type="submit"/></form>
+            </div>
+            
+        </div>
+
+    </div>
+</div >
+
+<div id="footer">Copyright k&a</div>
+</body>
+</html>

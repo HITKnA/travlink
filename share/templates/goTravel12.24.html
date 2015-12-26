@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>去哪里？</title>
+    <style type="text/css">
+        body{
+            background: black;
+        }
+        p{
+            font-family: monospace, monospace;
+            color: whitesmoke;
+        }
+        nav{
+            position: relative;
+            top:20px;
+
+        }
+        #nav > ul {
+            margin: 0;
+            position: relative;
+            left:30%;
+        }
+
+        #nav > ul > li {
+            display: inline-block;
+            font-style: italic;
+            margin: 0 2em 0 2em;
+        }
+
+        #nav > ul > li > a {
+            border-radius: 5px;
+            color: #5d5d5d;
+            text-decoration: none;
+            padding: .6em 1.2em 0.6em 1.2em;
+            -moz-transition: background-color .25s ease-in-out;
+            -webkit-transition: background-color .25s ease-in-out;
+            -ms-transition: background-color .25s ease-in-out;
+            transition: background-color .25s ease-in-out;
+            outline: 0;
+        }
+
+        #nav > ul > li:hover > a, #nav > ul > li.active > a {
+            background: #f3f3f3;
+        }
+
+        #nav > ul > li.current > a {
+            background: #d52349;
+            color: #fff !important;
+            font-weight: 700;
+        }
+        #nav>form>input{
+            border-radius: 5px;
+            border: none;
+            color: #5d5d5d;
+            position: relative;
+            left: 90%;
+            padding: .6em 1.2em 0.6em 1.2em;
+        }
+        #content>div>form>input{
+            border-radius: 5px;
+            border: none;
+            color: #5d5d5d;
+            position: relative;
+            top:-30px;
+            left: 95%;
+            padding: .6em 1.2em 0.6em 1.2em;
+
+        }
+        h1, h2, h3, h4, h5, h6,a,li {
+            color: #ffff99;
+            font-weight: 700;
+            font-family: monospace, monospace;
+        }
+
+        h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+            color: yellow;
+            text-decoration: none;
+            font-family: monospace, monospace;
+        }
+
+        a {
+            color: #d52349;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        div#header {background-color:red;clear:both;text-align:center;}
+        div#footer {background-color:red;clear:both;text-align:center;}
+        div#header>button{
+            position: relative;
+            left: 30%;
+        }
+
+        .content{
+
+            border-radius: 5px;
+            border:4px solid #778899;
+
+
+            background: black;
+
+
+        }
+        .tab{
+            border-radius: 2px;
+            margin-top: 12px;
+            width: 80％;
+            height: 30px;
+            border-bottom: #778899;
+            list-style: none;
+            margin-bottom: -1px;
+            position: relative;
+            z-index: 20;
+            left: -40%;
+
+
+
+        }
+        li{
+            float: left;
+            height: 28px;
+            padding: 0 25px;
+            border-bottom: 5px solid #000000;
+            border-radius: 5px;
+            margin-right: 10px;
+            line-height: 30px;
+            cursor: pointer;
+            background: black;
+            color: whitesmoke;
+            font-size: 14px;
+            position: relative;
+            top:-4px;
+
+
+        }
+        .tab-active{
+            border-radius: 10px;
+            border: 5px solid none;
+            border-bottom:  #778899;
+            border-top-width: 4px;
+            height: 28px;
+            background: midnightblue;
+            color: #0461B1;
+            font-weight: bold;
+            position: relative;
+
+        }
+        .main{ width:60%;height: 300px; float: right;background: #778899; display:inline}
+        .avatar{width: 40%; height:100%; float: left;text-align: center; display:inline;vertical-align: middle;background: #778899}
+        .avatar>img{
+            border-radius: 5px;
+        }
+        .account {
+            width: 35%;
+            height:300px;
+            position: relative;
+            top:30px;
+            left: 30%;
+            border-radius: 8px;
+            border: #808080 outset 8px;
+            margin-bottom: 100px;
+            }
+        .aticle{
+            width: 90%;
+            border:  #778899 solid 3px;
+            position: relative;
+            background: #778899;
+            left: 5% ;
+            -webkit-box-shadow: 2px 2px 20px #778899;
+            box-shadow: 2px 2px 20px #778899;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .aticle>h3{
+            position: relative;left:7%;
+
+        }
+        .aticle>p{
+            position: relative;left:2%;
+            width: 96%;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div >
+        <div id="header">
+            <h1>Travelink</h1>
+        </div id = "header">
+        <div>
+            <nav id="nav">
+                <ul>
+                    <li ><a href="../../">Home</a></li>
+                    <li><a href="../../personal_index.html">我的空间</a></li>
+                    <li><a href="go_out.html">go travel</a></li>
+
+                </ul>
+            </nav>
+        </div>
+        <div style="position: relative;background: black;top:60px">
+            <ul class="tab ">
+                <li class="tab-active">推荐文章</li>
+                <li>群组推荐</li>
+            </ul>
+            <div class="content">
+                <div class="inner">
+                    {% for diary in diary_city_list %}
+                    <div class="aticle">
+                        <div STYLE="width: 20%;">
+                            <img src="http://127.0.0.1:8000/media/{{diary.Username.Image}}" style="display:inline;border-radius: 50%;"height="60px" width="60px">
+                            <p style="display: inline;position: relative;top:-23px">{{diary.Username.Username}}</p>
+                        </div>
+                        <h3> {{diary.Tile}} </h3>
+                        <p>{{diary.Passage}}
+                            <a>更多</a></p>
+                            {%if diary.Image%}
+                            <img src="http://127.0.0.1:8000/media/{{diary.Image}}" style="display:inline;"height="100px" width="100px">
+                            {%endif%}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="inner"style="display:none">
+
+                    {%for group in group_list%}
+                    <div class="account" >
+                        <div class = "main">
+                            <p>{{member_list}}</p>
+                            <p>小组名称：{{group.Name}}</p>
+                            <p>组长：{{group.Travel_plan.Username.Username}}</p>
+                            <p>成员：{% for member in group.Member.all%}
+                                <p>{{member.Username}}</p>
+                                {%endfor%}
+                                </p>
+                            <p>出发地：{{group.Travel_plan.Start_place}}</p>
+                            <p>目的地：{{group.Travel_plan.Destination}}</p>
+
+                            <p>出发日期：{{group.Travel_plan.Start_date}}</p>
+                            <p>回程日期：{{group.Travel_plan.End_date}}</p>
+                            <p>要求：{{group.Travel_plan.Demand}}</p>
+                            <form action="" method="post">小组名称：
+                                <input value="{{group.id}}" type="hidden" name="add_member">
+                 <input value="创建群组" type="submit"/></form>
+                        </div>
+
+                        <div class="avatar">
+                            <img src="http://127.0.0.1:8000/media/{{plan.Username.Image}}" width="80%" height="100%";>
+
+                        </div>
+
+
+
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div >
+
+    <script>
+        var lists = $('.tab li');
+        var contents = $('.content .inner');
+
+        function bindEvent(){
+
+            lists.each(function(index_li, li){
+                $(this).on('click', function(event){
+
+                    lists.removeClass('tab-active');
+                    $(this).addClass('tab-active');
+
+                    contents.each(function(index_content, content){
+                        if(index_li === index_content){
+                            $(this).show();
+                        }else{
+                            $(this).hide();
+                        }
+                    });
+                });
+            });
+        }
+
+        function init(){
+            bindEvent();
+        }
+
+        init();
+
+    </script>
+    <div id="footer">Copyright k&a</div>
+</body>
+</html>

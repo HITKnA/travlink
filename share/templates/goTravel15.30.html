@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+   <script src="/src/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/src/js/main.js"></script>
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <title>去哪里？</title>
+    <style type="text/css">
+        body{
+            background: black;
+        }
+        p{
+            font-family: monospace, monospace;
+            color: whitesmoke;
+        }
+        nav{
+            position: relative;
+            top:20px;
+
+        }
+        #nav > ul {
+            margin: 0;
+            position: relative;
+            left:30%;
+        }
+
+        #nav > ul > li {
+            display: inline-block;
+            font-style: italic;
+            margin: 0 2em 0 2em;
+        }
+
+        #nav > ul > li > a {
+            border-radius: 5px;
+            color: #5d5d5d;
+            text-decoration: none;
+            padding: .6em 1.2em 0.6em 1.2em;
+            -moz-transition: background-color .25s ease-in-out;
+            -webkit-transition: background-color .25s ease-in-out;
+            -ms-transition: background-color .25s ease-in-out;
+            transition: background-color .25s ease-in-out;
+            outline: 0;
+        }
+
+        #nav > ul > li:hover > a, #nav > ul > li.active > a {
+            background: #f3f3f3;
+        }
+
+        #nav > ul > li.current > a {
+            background: #d52349;
+            color: #fff !important;
+            font-weight: 700;
+        }
+        #nav>form>input{
+            border-radius: 5px;
+            border: none;
+            color: #5d5d5d;
+            position: relative;
+            left: 90%;
+            padding: .6em 1.2em 0.6em 1.2em;
+        }
+        #content>div>form>input{
+            border-radius: 5px;
+            border: none;
+            color: #5d5d5d;
+            position: relative;
+            top:-30px;
+            left: 95%;
+            padding: .6em 1.2em 0.6em 1.2em;
+
+        }
+        h1, h2, h6, h4, h5, h6,a,li {
+            color: #ffff99;
+            font-weight: 700;
+            font-family: monospace, monospace;
+        }
+
+        h1 a, h2 a, h6 a, h4 a, h5 a, h6 a {
+            color: yellow;
+            text-decoration: none;
+            font-family: monospace, monospace;
+        }
+
+        a {
+            color: #d52349;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        div#header {background-color:red;clear:both;text-align:center;}
+        div#footer {background-color:red;clear:both;text-align:center;}
+        div#header>button{
+            position: relative;
+            left: 30%;
+        }
+
+        .content{
+
+            border-radius: 5px;
+            border:4px solid #778899;
+
+
+            background: black;
+
+
+        }
+        .tab{
+            border-radius: 2px;
+            margin-top: 12px;
+            width: 80％;
+            height: 30px;
+            border-bottom: #778899;
+            list-style: none;
+            margin-bottom: -1px;
+            position: relative;
+            z-index: 20;
+            left: -40%;
+
+
+
+        }
+        li{
+            float: left;
+            height: 28px;
+            padding: 0 25px;
+            border-bottom: 5px solid #000000;
+            border-radius: 5px;
+            margin-right: 10px;
+            line-height: 30px;
+            cursor: pointer;
+            background: black;
+            color: whitesmoke;
+            font-size: 14px;
+            position: relative;
+            top:-4px;
+
+
+        }
+        .tab-active{
+            border-radius: 10px;
+            border: 5px solid none;
+            border-bottom:  #778899;
+            border-top-width: 4px;
+            height: 28px;
+            background: midnightblue;
+            color: #0461B1;
+            font-weight: bold;
+            position: relative;
+
+        }
+        .main{ width:60%;height: 300px; float: right;background: #778899; display:inline}
+        .avatar{width: 40%; height:100%; float: left;text-align: center; display:inline;vertical-align: middle;background: #778899}
+        .avatar>img{
+            border-radius: 5px;
+        }
+        #account {
+            width: 395px;
+            position: relative;
+            top:30px;
+            left: 30%;
+            border-radius: 8px;
+            border: #808080 outset 8px;
+            margin-bottom: 100px;
+            background: #778899;
+            }
+        .aticle{
+            width: 90%;
+            border:  #778899 solid 3px;
+            position: relative;
+            background: #778899;
+            left: 5% ;
+            -webkit-box-shadow: 2px 2px 20px #778899;
+            box-shadow: 2px 2px 20px #778899;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .aticle>h6{
+            position: relative;left:7%;
+
+        }
+        .aticle>p{
+            position: relative;left:2%;
+            width: 96%;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div >
+        <div id="header">
+            <h1>Travelink</h1>
+        </div id = "header">
+        <div>
+            <nav id="nav">
+                <ul>
+                    <li ><a href="../../">Home</a></li>
+                    <li><a href="../../personal_index">我的空间</a></li>
+                    <li><a href="../go_out.html">go travel</a></li>
+
+                </ul>
+            </nav>
+        </div>
+        <div style="position: relative;background: black;top:60px">
+            <ul class="tab ">
+                <li >推荐文章</li>
+                <li class="tab-active">群组推荐</li>
+            </ul>
+            <div class="content">
+                <div class="inner" style="display:none">
+                    {% for diary in diary_city_list %}
+                    <div class="aticle">
+                        <div STYLE="width: 20%;">
+                            <img src="http://127.0.0.1:8000/media/{{diary.Username.Image}}" style="display:inline;border-radius: 50%;"height="60px" width="60px">
+                            <p style="display: inline;position: relative;top:-23px">{{diary.Username.Username}}</p>
+                        </div>
+                        <h3> {{diary.Tile}} </h3>
+                        <p>{{diary.Passage}}
+                            <a>更多</a></p>
+                            {%if diary.Image%}
+                            <img src="http://127.0.0.1:8000/media/{{diary.Image}}" style="display:inline;"height="100px" width="100px">
+                            {%endif%}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="inner" >
+
+                    {%for group in group_list%}
+                    <div id="account"  style = "float:left">
+                        <h4 style="text-align: center">小组名称：{{group.Name}}</h6>
+                            
+                        <p>组长：{{group.Travel_plan.Username.Username}}</p>
+                        <p>组员：</p>
+                        {% for member in group.Member.all%}
+                        <div style="position: relative; left:-80px;"class="col-md-1 col-md-offset-3">
+                            <div class="image">
+                                <img src="http://127.0.0.1:8000/media/{{member.Image}}" style="display:inline;border-radius: 50%;"height="60px" width="60px">
+                                <p style="display: inline;font-size: 13px"><a>{{member.Username}}</a></p>
+                            </div>
+
+                        </div>
+                        {%endfor%}
+                        <div style = "float:right;position: relative;left:-20px">
+                            <h6>出发地：<p>{{group.Travel_plan.Start_place}}</p></h6>
+                            <h>目的地：<p>{{group.Travel_plan.Destination}}</p></h6>
+                            <h6>出发日期：<p>{{group.Travel_plan.Start_date}}</p></h6>
+                            <h6>回程日期：<p>{{group.Travel_plan.End_date}}</p></h6>
+                            <h6>要求：<p>{{group.Travel_plan.Demand}}</p></h6>
+                        </div>
+                        
+                        <form style = "position: relative;float:left "action="" method="post">
+                            <input value="{{group.id}}" type="hidden" name="add_member">
+                            <input value="加入群组" type="submit"/>
+                        </form>
+                    
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div >
+
+    <script>
+        var lists = $('.tab li');
+        var contents = $('.content .inner');
+
+        function bindEvent(){
+
+            lists.each(function(index_li, li){
+                $(this).on('click', function(event){
+
+                    lists.removeClass('tab-active');
+                    $(this).addClass('tab-active');
+
+                    contents.each(function(index_content, content){
+                        if(index_li === index_content){
+                            $(this).show();
+                        }else{
+                            $(this).hide();
+                        }
+                    });
+                });
+            });
+        }
+
+        function init(){
+            bindEvent();
+        }
+
+        init();
+
+    </script>
+    <div id="footer">Copyright k&a</div>
+</body>
+</html>

@@ -16,7 +16,7 @@ Including another URLconf
 #coding=utf-8 
 from django.conf.urls import include, url
 from django.contrib import admin
-from share.views import home,test_blog,login_view,go_out,diary,register_view,suggest_blog,my_info
+from share.views import home,test_blog,login_view,go_out,diary,register_view,suggest_blog,my_info,my_group
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -29,7 +29,8 @@ urlpatterns = [
     url(r'^yj.html/',diary),
     url(r'^register/',register_view),
     url(r'^suggest/',suggest_blog),
-    url(r'^my_info/',my_info),
+    url(r'^personal_index/',my_info),
+    url(r'^my_group/',my_group),
     
     url(r'^src/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.STATIC_PATH}),
 

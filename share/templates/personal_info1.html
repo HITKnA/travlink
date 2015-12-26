@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <style type="text/css">
+        body{
+            width: 100%;
+        }
+
+        input{
+            border-radius: 5px;
+        }
+
+        #nav > ul {
+            margin: 0;
+
+        }
+
+        #nav > ul > li {
+            display: inline-block;
+            font-style: italic;
+            margin: 0 2em 0 2em;
+        }
+
+        #nav > ul > li > a {
+            border-radius: 5px;
+            color: #5d5d5d;
+            text-decoration: none;
+            padding: .6em 1.2em 0.6em 1.2em;
+            -moz-transition: background-color .25s ease-in-out;
+            -webkit-transition: background-color .25s ease-in-out;
+            -ms-transition: background-color .25s ease-in-out;
+            transition: background-color .25s ease-in-out;
+            outline: 0;
+        }
+
+        #nav > ul > li:hover > a, #nav > ul > li.active > a {
+            background: #f3f3f3;
+        }
+
+        #nav > ul > li.current > a {
+            background: #d52349;
+            color: #fff !important;
+            font-weight: 700;
+        }
+        #nav>form>input{
+            border-radius: 5px;
+            border: none;
+            color: #5d5d5d;
+            position: relative;
+            left: 90%;
+            padding: .6em 1.2em 0.6em 1.2em;
+        }
+        #content>div>form>input{
+            border-radius: 5px;
+            border: none;
+            color: #5d5d5d;
+            position: relative;
+            top:-30px;
+            left: 95%;
+            padding: .6em 1.2em 0.6em 1.2em;
+
+        }
+        h1, h2, h3, h4, h5, h6,a,li {
+
+            font-weight: 700;
+            font-family: monospace, monospace;
+        }
+
+        h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+
+            text-decoration: none;
+            font-family: monospace, monospace;
+        }
+
+        a {
+            color: #d52349;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        div#header {background-color:red;clear:both;text-align:center;}
+        div#footer {background-color:red;clear:both;text-align:center;}
+        div#menu {clear:both;text-align:center;}
+        div#planview {
+            background-color: transparent;
+            width:28% ;
+            float:left;
+            text-align: center;
+            border-right: 3px solid whitesmoke;
+            height: 1080px;
+        }
+        div.title{
+            width: 50px;
+            height: 50px;
+            margin-top: 150px  ;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+
+            border-radius: 50%;
+            background-color: navajowhite;
+            color: #b3d4fc;;
+            padding: 1.2em 1.2em 1.2em 1.2em;
+        }
+        .account{
+            float: left;
+            border-bottom:3px solid whitesmoke ;
+            width: 100%;
+            text-align: left;
+
+
+        }
+        .account>img,h4{
+            display: inline;
+            position: relative;
+
+            left: 80px;
+
+        }
+        .account>h4{
+            position: relative;
+            top:-50px;
+            left: 130px;
+        }
+        div#content {
+
+
+            width:70%;
+            float:left;
+            position: relative;
+
+
+        }
+        .z{
+            float: left;
+            color: red;
+            text-shadow:1px 1px 2px black;
+
+        }
+
+
+        #content>div>form>p>input{
+            width: 18.2%;
+            border: solid;
+        }
+        #content>div>form>p{
+            position: relative;
+            top: 20px;
+        }
+
+        div#passage{
+
+            width: 87%;
+            border:  whitesmoke solid 3px;
+            position: relative;
+            background: whitesmoke;
+        -webkit-box-shadow: 1px 1px 10px #778899;
+            box-shadow: 1px 1px 10px #778899;
+            margin-top: 100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        div#passage>a{
+            border-radius: 10px;
+            background-color: #3b5671;
+        }
+        div#passage>div{
+            width: 100%;
+            border-radius: 10px;
+            height: 50px;
+        }
+        a.current{
+            background: #151112;
+            color: #fff !important;
+            font-weight: 500;
+            border-radius: 5px;
+            padding: .3em 0.5em 0.3em 0.5em;
+            text-decoration: none;
+
+        }
+        .plan{
+            height: 300px;
+            width: 87%;
+            border:  whitesmoke solid 3px;
+            position: relative;
+            background: white;
+            margin:  -5px 0 0 0
+        -webkit-box-shadow: 1px 1px 10px #778899;
+            box-shadow: 1px 1px 10px #778899;
+            margin: 30px 0 0 0;
+            border-radius: 5px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #nav>button{
+            margin:0;
+            border:none;
+            background: none;
+            font-size: 16px;
+            position: relative;
+            left:88%;
+            top:-30px;
+            font-weight: 300;
+
+        }
+        nav>form>button{
+
+            margin:0 0 30px 0;
+            border:none;
+            background: none;
+            font-size: 16px;
+            position: relative;
+            left:88%;
+            top:-30px;
+            font-weight: 300;
+        }
+
+        #nav>HR{
+            position: relative;
+
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+
+    <div id="header">
+        <h1>Travelink</h1>
+    </div id = "header">
+    <div id ="menu">
+        <nav id="nav">
+        <ul>
+            <li><a href="../../">Home</a></li>
+            <li class="current"><a href="/my_info/">我的空间</a></li>
+            <li><a href="/go_out.html/">去旅行</a></li>
+
+        </ul>
+
+
+        <HR color=whitesmoke SIZE="3">
+    </nav></div>
+
+
+    <div id="planview">
+        <div class="account">
+            <img src="http://127.0.0.1:8000/media/{{account.Image}}" height="120px" width="90px">
+            <h4>欢迎 {{account.Username}}</h4>
+
+        </div>
+        <div class="title">
+            <h3 style="position: relative;top:-22px;">出行计划</h3>
+        </div>
+        <div class="plan">
+            {%if travel_plan%}
+                {%for plan in travel_plan%}
+                    <li><h5>目的地：{{plan.Destination}}</h5></li>
+                <li><h5>出发地：{{plan.Start_place}}</h5></li>
+                <li><h5>出发时间：{{plan.Start_date}}</h5></li>
+                <li><h5>结束时间：{{plan.End_date}}</h5></li>
+                <li><h5>人数：{{plan.People_amount}}</h5></li>
+                <li><h5>预算：{{plan.Budget}}</h5></li>
+                <li><h5>其他需求：{{plan.Demand}}</h5></li>
+                {%endfor%}
+                {%endif%}
+
+        </div>
+
+    </div>
+
+    <div id="content">
+        <h2 class="z">文章和说说</h2>
+        {%if diary_list%}
+        {%for diary in diary_list %}
+        <div id = "passage">   
+            <div >
+                <li>{{diary.Passage}}</li>
+                <li>{{diary.Date_time}}</li>
+                <li>{{diary.Abstract}}</li>
+            </div>
+            <a>
+            </a>
+        </div>
+        {%endfor%}
+        {%endif%}
+    </div>
+
+    <div id="footer">Copyright k&a</div>
+</body>
+</html>

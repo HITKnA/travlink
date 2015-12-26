@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <script src="/src/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/src/js/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+
+    <title>我想去看看世界</title>
+    <style type="text/css">
+        body{
+            width: 100%;
+            height: 100%;
+        }
+        p{
+            font-family: monospace, monospace;
+        }
+        input{
+            border-radius: 5px;
+        }
+        nav{
+            position: absolute; z-index:2;
+            top:100px;width: 100%;
+        }
+        #nav > ul {
+            position: relative;
+            left:30%;
+        }
+        #nav > ul > li {
+            display: inline-block;
+            font-style: italic;
+            margin: 0 2em 0 2em;
+        }
+        #nav > ul > li > a {
+            border-radius: 5px;
+            color: #FAFAFA;
+            text-decoration: none;
+            padding: .6em 1.2em 0.6em 1.2em;
+            -moz-transition: background-color .25s ease-in-out;
+            -webkit-transition: background-color .25s ease-in-out;
+            -ms-transition: background-color .25s ease-in-out;
+            transition: background-color .25s ease-in-out;
+            outline: 0;
+        }
+        #nav > ul > li:hover > a, #nav > ul > li.active > a {
+            background: #f3f3f3;
+        }
+        #nav > ul > li.current > a {
+            background: #d52349;
+            color: #fff !important;
+            font-weight: 700;
+        }
+        
+        h1, h2, h3, h4, h4, h6 ,a{
+            color: #ffff99;
+            font-weight: 700;
+            font-family: monospace, monospace;
+        }
+        h1 a, h2 a, h3 a, h4 a, h4 a, h6 a {
+            color: yellow;
+            text-decoration: none;
+        }
+        a {
+            color: #d52349;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        div#header {clear:both;text-align:center; position: absolute; z-index:2;
+            top:0;width: 100%;}
+        div#footer {clear:both;text-align:center;position: relative; z-index:2;
+            top:95%;width: 100%;}
+        div#header>button{
+            position: absolute;
+            left: 30%;
+        }
+
+        div#content {
+            height:;
+            width:60%;
+            float: none;
+            position: absolute; z-index:2;
+            left: 40%;
+            top:20%;
+        }
+
+        div#content>ul>form>li{
+            position: relative;
+            top:11px;
+            margin: 5% 5% 0 0;
+        }
+
+        div#content>ul>form>input{
+            background: red;
+            color:black;
+            border: none;
+            text-decoration: none;
+            position: relative;
+            left: 20%;
+            margin: 1% 0 0 0;
+            -moz-transition: background-color .25s ease-in-out;
+            -webkit-transition: background-color .25s ease-in-out;
+            -ms-transition: background-color .25s ease-in-out;
+            transition: background-color .25s ease-in-out;
+            outline: 0;
+            padding: .6em 1.2em 0.6em 1.2em;
+        }
+       div#content>ul>form>li>textarea{
+           border: green dashed 5px;
+           font-size: 16px;
+           line-height: 150%;
+           letter-spacing: 1px;
+
+           position: relative;
+           resize: none;
+           width: 25%;
+           height: 25%;
+           overflow-y: visible;
+           border-radius: 7px;
+
+       }
+        a.current{
+            background: #151112;
+            color: #fff !important;
+            font-weight: 500;
+            border-radius: 5px;
+            padding: .3em 0.5em 0.3em 0.5em;
+        }
+        .text {
+            position: relative;
+            top:30px;
+        }
+        .blur {
+            filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+            -webkit-filter: blur(10px); /* Chrome, Opera */
+            -moz-filter: blur(10px);
+            -ms-filter: blur(10px);
+            filter: blur(10px);
+        }
+        .image{
+            position: relative;z-index: -1
+        }
+    </style>
+</head>
+<body>
+
+    <div class="image">
+        <img src="/src/img/back.jpg" class="blur" width="100%" height="100%">
+    </div>
+    <div id="header">
+        <h1>Travelink</h1>
+    </div >
+    <div>
+        <nav id="nav">
+            <ul>
+                <li ><a href="../../">Home</a></li>
+                <li><a href="../../personal_index.html">我的空间</a></li>
+                <li class = "current"><a href="#">去旅游</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="content">
+        <ul>
+            {%if travel_plan%}
+            <div id="content">
+                <ul style="position: relative;left: -55%;display: inline">
+                    {%for plan in travel_plan%}
+                    <li><h2>我的旅行计划 </h2></li>
+                    <li><h4>目的地：{{plan.Destination}}</h4></li>
+                    <li><h4>出发地：{{plan.Start_place}}</h4></li>
+                    <li><h4>出发时间：{{plan.Start_date}}</h4></li>
+                    <li><h4>结束时间：{{plan.End_date}}</h4></li>
+                    <li><h4>人数：{{plan.People_amount}}</h4></li>
+                    <li><h4>预算：{{plan.Budget}}</h4></li>
+                    <li><h4>其他需求：{{plan.Demand}}</h4></li>
+                    {%endfor%}
+
+                    <button class="modified">修改计划</button>
+                    <a href="../../suggest">查看推荐信息</a>
+                    <a href="../../my_group">新建群组</a>
+            </div>
+            <div id = "subplan" style="display: none;float: right;position: relative;left: -20% ; z-index:2" >
+                <form class="city_title" action="" method="post" onsubmit="manSub(this);return false;" name="spc">
+                    <li>
+                        <h4>
+                            目的地
+                            <select  name="Destination_province" id="ddlProvince" onchange="selectMoreCity(this)"></select>
+                            <select name="Destination_city" id="ddlCity">
+                                <option selected value="">城市</option>
+                            </select>
+                        </h4>
+
+                    </li>
+                    <li>
+                        <h4>
+                            出发地
+                            <select  name="Start_place_province" id="dlProvince" onchange="selectMoreCity2(this)"></select>
+                            <select name="Start_place_city" id="dlCity">
+                                <option selected value="">城市</option>
+                            </select>
+                        </h4>
+
+
+                    </li>
+                    <li><h4>出发时间 <input type="date" name="Start_date" /> </h4></li>
+                    <li><h4>结束时间 <input type="date" name="End_date" /> </h4></li>
+                    <li><h4>人数 <input type="number" name="People_amount" /> </h4></li>
+                    <li><h4>预算 <input type="number" name="Budget" /> </h4></li>
+                    <li><h4>其他需求 </h4><textarea></textarea></li>
+                    <input class="inputstyle" value="确定" type="submit"/>
+
+                </form>
+                <script type="text/javascript" language ="javascript">
+                    BindProvince();//只初始化省份
+                </script>
+                <script type="text/javascript" language ="javascript">
+                    BindProvince2();//只初始化省份
+                </script>
+            </div>
+            <SCRIPT LANGUAGE="javascript">
+
+                $(document).ready(function()
+                {
+                    jQuery.fn.extend({
+                        center:function(width,height)
+                        {
+                            return $(this).css("left", ($(window).width()-width)/4+$(window).scrollLeft()).
+                                    css("top", ($(window).height()-height)/4+$(window).scrollTop()).
+                                    css("width",width).
+                                    css("height",height);
+                        }
+                    });
+                });
+                $(".modified").click(function ()
+                {
+                    $("#subplan").show();//展现登陆框
+                });
+            </SCRIPT>
+
+            {%else%}
+            <form class="city_title" action="" method="post" onsubmit="manSub(this);return false;" name="spc">
+                <li>    
+                    <h4>
+                        目的地 
+                        <select  name="Destination_province" id="ddlProvince" onchange="selectMoreCity(this)"></select>
+                        <select name="Destination_city" id="ddlCity">
+                            <option selected value="">城市</option>
+                        </select>
+                    </h4>
+
+                </li>
+                <li>    
+                    <h4>
+                        出发地 
+                        <select  name="Start_place_province" id="dlProvince" onchange="selectMoreCity2(this)"></select>
+                        <select name="Start_place_city" id="dlCity">
+                            <option selected value="">城市</option>
+                        </select>
+                    </h4>
+
+
+                </li>
+                <li><h4>出发时间 <input type="date" name="Start_date" /> </h4></li>
+                <li><h4>结束时间 <input type="date" name="End_date" /> </h4></li>
+                <li><h4>人数 <input type="number" name="People_amount" /> </h4></li>
+                <li><h4>预算 <input type="number" name="Budget" /> </h4></li>
+                <li><h4>其他需求 </h4><textarea></textarea></li>
+                <input class="inputstyle" value="确定" type="submit"/>
+
+            </form>
+            <script type="text/javascript" language ="javascript">
+                BindProvince();//只初始化省份
+            </script>
+            <script type="text/javascript" language ="javascript">
+                BindProvince2();//只初始化省份
+            </script>
+            {%endif%}
+        </ul>
+    </div>
+    <div id="footer">Copyright k&a</div>
+
+
+</body>
+</html>

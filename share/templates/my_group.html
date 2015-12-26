@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <script src="/src/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/src/js/main.js"></script>
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>我想去看看世界</title>
+    <style type="text/css">
+        body{
+            width: 100%;
+            height: 100%;
+        }
+        p{
+            font-family: monospace, monospace;
+        }
+        input{
+            border-radius: 5px;
+        }
+        nav{
+            position: absolute; z-index:2;
+            top:100px;width: 100%;
+            text-align: center;
+        }
+        #nav > ul {
+
+        }
+        #nav > ul > li {
+            display: inline-block;
+            font-style: italic;
+            margin: 0 2em 0 2em;
+        }
+        #nav > ul > li > a {
+            border-radius: 5px;
+            color:#d52349;
+            text-decoration: none;
+            padding: .6em 1.2em 0.6em 1.2em;
+            -moz-transition: background-color .25s ease-in-out;
+            -webkit-transition: background-color .25s ease-in-out;
+            -ms-transition: background-color .25s ease-in-out;
+            transition: background-color .25s ease-in-out;
+            outline: 0;
+        }
+        #nav > ul > li:hover > a, #nav > ul > li.active > a {
+            background: #f3f3f3;
+        }
+        #nav > ul > li.current > a {
+            background: #d52349;
+            color: #fff !important;
+            font-weight: 700;
+        }
+
+        h1, h2, h3, h4, h4, h6 ,a{
+            color: black;
+            font-weight: 700;
+            font-family: monospace, monospace;
+        }
+        h1 a, h2 a, h3 a, h4 a, h4 a, h6 a {
+            color: black;
+            text-decoration: none;
+        }
+        a {
+            color: #d52349;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        div#header {clear:both;text-align:center; position: absolute; z-index:2;
+            top:0;width: 100%;}
+        div#footer {clear:both;text-align:center;position: relative; z-index:2;
+            top:95%;width: 100%;}
+        div#header>button{
+            position: absolute;
+            left: 30%;
+        }
+
+        div#content {
+
+            float: none;
+            position: absolute; z-index:2;
+
+            top:20%;
+        }
+
+        #group{
+
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background: white none repeat scroll 0 0;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 5px 10px #ccc;
+            float: left;
+            width: 395px;
+
+        }
+
+
+
+        a.current{
+            background: #151112;
+            color: #fff !important;
+            font-weight: 500;
+            border-radius: 5px;
+            padding: .3em 0.5em 0.3em 0.5em;
+        }
+        #plan{
+            position: relative;
+            left: 40%;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="header">
+    <h1>Travelink</h1>
+</div >
+<div>
+    <nav id="nav">
+        <ul>
+            <li ><a href="../../" style="color: ">Home</a></li>
+           <a href="../../personal_index">我的空间</a></li>
+            <li ><a href="../go_out.html">去旅游</a></li>
+        </ul>
+    </nav>
+</div>
+<div id="content">
+        {%if my_group%}
+        <div>
+            <h3 class="z">我的群组</h3>
+        </div>
+        <div style=" clear:both;position: relative;">
+<p>{{join_group}}</p>
+            {%for group in my_group%}
+                    <div id="group" class="col-md-3 col-md-offset-2" >
+                        <h4 style="text-align: center">小组名称：{{group.Name}}</h6>
+                        <p>组长：{{group.Travel_plan.Username.Username}}</p>
+                        <p>组员：</p>
+                        {% for member in group.Member.all%}
+                        <div style="position: relative; left:-80px;"class="col-md-1 col-md-offset-3">
+                            <div class="image">
+                                <img src="http://127.0.0.1:8000/media/{{member.Image}}" style="display:inline;border-radius: 50%;"height="60px" width="60px">
+                                <p style="display: inline;font-size: 13px"><a>{{member.Username}}</a></p>
+                            </div>
+
+                        </div>
+                        {%endfor%}
+                        <div style = "float:right;position: relative;left:-20px">
+                            <h6>出发地：<p>{{group.Travel_plan.Start_place}}</p></h6>
+                            <h>目的地：<p>{{group.Travel_plan.Destination}}</p></h6>
+                            <h6>出发日期：<p>{{group.Travel_plan.Start_date}}</p></h6>
+                            <h6>回程日期：<p>{{group.Travel_plan.End_date}}</p></h6>
+                            <h6>要求：<p>{{group.Travel_plan.Demand}}</p></h6>
+                        </div>
+                        {%endfor%}
+            
+        </div>
+
+
+        {%else%}
+        <div style="position: relative;left:10%;top:100px;"id = "group" class="col-md-3 col-md-offset-2">
+            <form action="" method="post">小组名称：<input type="text" name="group_name" />
+                <input value="创建群组" type="submit"/></form>
+        </div>
+        <div style="position: relative;left:75%" id = "group" class="col-md-3 col-md-offset-2">
+            <h2>我的旅行计划 </h2>
+            {%for plan in travel_plan%}
+
+           <h4>目的地：{{plan.Destination}}</h4>
+           <h4>出发地：{{plan.Start_place}}</h4>
+           <h4>出发时间：{{plan.Start_date}}</h4>
+           <h4>结束时间：{{plan.End_date}}</h4>
+           <h4>人数：{{plan.People_amount}}</h4>
+           <h4>预算：{{plan.Budget}}</h4>
+           <h4>其他需求：{{plan.Demand}}</h4>
+            {%endfor%}
+
+        {%endif%}
+        </div>
+</div>
+
+a</div>
+
+</body>
+</html>
